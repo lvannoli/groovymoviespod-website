@@ -412,7 +412,7 @@
 
       try {
         // cache-bust leggero per evitare che alcuni host servano una versione vecchia troppo a lungo
-        const res = await fetch(`./latest.json?v=${Date.now()}`, { cache: "no-store" });
+        const res = await fetch(`latest.json?v=${Date.now()}`, { cache: "no-store" });
         if (!res.ok) throw new Error(`latest.json fetch failed: ${res.status}`);
 
         const data = await res.json();
