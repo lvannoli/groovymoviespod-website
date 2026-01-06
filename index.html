@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Groovy Movies — Podcast</title>
+  <meta name="description" content="Groovy Movies: a podcast about films, vibes, and everything in between." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg: #ead7bb;
+      --ink: #1b1b1b;
+      --accent: #e06900;
+      --accent-2: #5e2a00;
+      --card: #fff7ea;
+      --muted: #6b5f52;
+      --radius: 18px;
+      --shadow: 0 10px 25px rgba(0,0,0,.12);
+      --focus: 0 0 0 4px rgba(224,105,0,.28);
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    html { scroll-behavior: smooth; }
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    a{ color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible{
+      outline: none;
+      box-shadow: var(--focus);
+      border-radius: 10px;
+    }
+
+    .container{ width: min(1100px, 92%); margin: 0 auto; }
+
+    /* Header / Nav */
+    header{
+      position: sticky; top:0; z-index:50;
+      backdrop-filter: blur(6px);
+      background: rgba(234,215,187,.85);
+      background: color-mix(in hsl, var(--bg) 70%, transparent);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:12px 0;
+      gap:16px;
+    }
+
+    /* Top-left icon bar */
+    .iconbar{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .iconlink{
+      width:34px;
+      height:34px;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:10px;
+      border:1px solid rgba(0,0,0,.10);
+      background:#fff;
+      box-shadow: 0 6px 16px rgba(0,0,0,.08);
+    }
+    .iconlink:hover{ background: rgba(0,0,0,.04); }
+    .iconlink img{ width:18px; height:18px; display:block; }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:800;
+    }
+    .brand span{ letter-spacing:.5px; color: var(--accent-2); }
+
+    .links{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+    .links a{
+      padding:8px 12px;
+      border-radius:10px;
+      font-weight:600;
+      color:var(--accent-2);
+    }
+    .links a:hover{ background: rgba(0,0,0,.05); }
+
+    /* Sections */
+    section{ padding:42px 0; }
+
+    /* HERO: banner centrale e grande */
+    .hero{
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      text-align:center;
+      gap:18px;
+      padding:34px 0 18px;
+    }
+    .hero-banner{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+    }
+    .hero-banner img{
+      width:100%;
+      max-width:980px; /* grande */
+      height:auto;
+      display:block;
+      filter: drop-shadow(0 12px 24px rgba(0,0,0,.15));
+      border-radius: 18px;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: clamp(15px, 1.4vw, 18px);
+      margin: 0;
+      max-width: 820px;
+    }
+    .cta{ display:flex; gap:12px; flex-wrap:wrap; justify-content:center; }
+
+    .btn{
+      background: var(--accent);
+      color:#fff;
+      padding:12px 16px;
+      border:none;
+      border-radius:12px;
+      font-weight:700;
+      box-shadow: var(--shadow);
+      cursor:pointer;
+      display:inline-block;
+    }
+    .btn.sec{
+      background:#fff;
+      color:var(--accent-2);
+      border:1px solid rgba(0,0,0,.08);
+      box-shadow: none;
+    }
+
+    .section-title{ font-size:28px; margin-bottom:18px; }
+
+    /* Episodes */
+    .player-grid{ display:block; }
+    .player{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .player iframe{
+      width:100%;
+      border-radius: 12px;
+      border:0;
+      min-height: 220px;
+      aspect-ratio: 16 / 9;
+    }
+
+    .platforms{
+      margin-top: 16px;
+      background:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:18px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .platforms h3{ margin:0; font-size:18px; }
+    .pills{ display:flex; gap:10px; flex-wrap:wrap; }
+    .pill{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid rgba(0,0,0,.08);
+      background:#fff;
+      font-weight:700;
+    }
+    .pill:hover{ background: rgba(0,0,0,.05); }
+
+    /* YouTube latest 3 */
+    .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
+    .yt-card{
+      grid-column: span 4;
+      background:#fff;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+    }
+    .yt-thumb{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background:#ddd;
+      display:block;
+      object-fit: cover;
+    }
+    .yt-body{ padding:14px; }
+    .yt-title{ margin:0 0 6px; font-weight:800; }
+    .yt-meta{ margin:0; color:var(--muted); font-size:14px; }
+
+    /* Contact */
+    .sub{
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding:24px;
+    }
+    form{ display:grid; grid-template-columns: 1fr auto; gap:12px; }
+    input, textarea{
+      width:100%;
+      padding:12px 14px;
+      border-radius: 12px;
+      border:1px solid rgba(0,0,0,.12);
+      font: inherit;
+      background:#fff;
+    }
+    textarea{ min-height: 120px; grid-column: 1 / -1; }
+
+    /* Footer */
+    footer{ padding:36px 0; color:var(--muted); font-size:14px; }
+    .foot{ display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+
+    /* Responsive */
+    @media (max-width: 900px){
+      .yt-card{ grid-column: span 12; }
+      .links{ justify-content:flex-start; }
+      .nav{ align-items:flex-start; flex-direction:column; }
+      .links{ width:100%; }
+      .hero-banner img{ max-width: 100%; }
+    }
+  </style>
+
+  <!-- Global config: SOLO link ripetuti, niente apiKey -->
+  <script>
+    window.GM = {
+      links: {
+        spotify: "https://open.spotify.com/show/6GfUnZ6GOBHUuy1WZWh9Uc",
+        amazon: "https://music.amazon.com/podcasts/2b1c1544-ed6b-4d62-b40c-fbe1fcfa4eb4/groovy-movies",
+        apple: "https://podcasts.apple.com/gb/podcast/groovy-movies/id1635704814",
+        youtube: "https://www.youtube.com/@groovymoviespod",
+        instagram: "https://www.instagram.com/groovymoviespod",
+        tiktok: "https://www.tiktok.com/@groovymoviespod",
+        letterboxd: "https://letterboxd.com/GroovyMoviesPod/"
+      },
+      // fallback: se latest.json non è disponibile
+      youtubeFallbackEmbedId: "PriGHqaTGKw" /* <-- sostituisci con un vostro episodio (ID video) */
+    };
+  </script>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <!-- Top-left: social/platform Logos (href set by JS) -->
+      <div class="iconbar" aria-label="Listen and follow" id="iconbar">
+        <a class="iconlink" data-gm-link="spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <img src="Logos/Spotify_logo.svg" alt="" />
+        </a>
+        <a class="iconlink" data-gm-link="amazon" target="_blank" rel="noopener noreferrer" aria-label="Amazon Music / Podcasts">
+          <img src="Logos/Amazonmusic_logo.png" alt="" />
+        </a>
+        <a class="iconlink" data-gm-link="apple" target="_blank" rel="noopener noreferrer" aria-label="Apple Podcasts">
+          <img src="Logos/Applepodcast_logo.svg" alt="" />
+        </a>
+        <a class="iconlink" data-gm-link="youtube" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+          <img src="Logos/Youtube_logo.svg" alt="" />
+        </a>
+        <a class="iconlink" data-gm-link="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <img src="Logos/Instagram.svg" alt="" />
+        </a>
+        <a class="iconlink" data-gm-link="tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+          <img src="Logos/Tiktok_logo.svg" alt="" />
+        </a>
+        <a class="iconlink" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd">
+          <img src="Logos/letterboxd_logo.png" alt="" />
+        </a>
+      </div>
+
+      <a class="brand" href="#home" aria-label="Groovy Movies home">
+        <span>Groovy Movies</span>
+      </a>
+
+      <nav class="links" aria-label="Primary navigation">
+        <a href="#episodes">Episodes</a>
+        <a href="#contact">Contacts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home" class="container">
+    <section class="hero" aria-label="Intro">
+      <div class="hero-banner">
+        <img src="Logos/GroovyMovies_Banner_PNG_no_bkg.png" alt="Groovy Movies banner" />
+      </div>
+
+      <p class="lead">
+        A film podcast with a retro vibe. Deep dives, hot takes, and good times. Tune in for fresh conversations about classics, cult gems, and new releases.
+      </p>
+
+      <div class="cta">
+        <a class="btn" href="#episodes">Watch latest</a>
+        <a class="btn sec" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <!-- Episodes -->
+    <section id="episodes" aria-label="Episodes">
+      <h2 class="section-title">Episodes</h2>
+
+      <div class="player-grid">
+        <!-- YouTube player (src set by JS from latest.json; fallback set immediately) -->
+        <div class="player" id="youtube-player">
+          <iframe
+            title="Groovy Movies — Latest episode on YouTube"
+            data-gm-youtube="latest"
+            src=""
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+
+        <!-- Platforms -->
+        <aside class="platforms" aria-label="Streaming platforms">
+          <h3>Listen / watch on</h3>
+          <div class="pills" id="platform-pills">
+            <a class="pill" data-gm-link="spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
+            <a class="pill" data-gm-link="amazon" target="_blank" rel="noopener noreferrer">Amazon</a>
+            <a class="pill" data-gm-link="apple" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
+            <a class="pill" data-gm-link="youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a class="pill" data-gm-link="instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a class="pill" data-gm-link="tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
+            <a class="pill" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer">Letterboxd</a>
+          </div>
+        </aside>
+
+        <div style="margin-top:16px;"></div>
+        <div class="grid" aria-label="Latest episodes on YouTube" id="latest-youtube-grid">
+          <!-- JS will inject cards here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacts -->
+    <section id="contact" aria-label="Contacts">
+      <h2 class="section-title">Contacts</h2>
+      <div class="sub">
+        <form action="mailto:groovymoviespod@gmail.com?subject=Groovy%20Movies%20Contact" method="post" enctype="text/plain">
+          <input type="email" name="email" placeholder="Your email" required aria-label="Your email" />
+          <button class="btn" type="submit">Send</button>
+          <textarea name="message" placeholder="Got a question, request, or collab idea? Write to us!" aria-label="Message"></textarea>
+        </form>
+        <p style="margin-top:12px;color:var(--muted)">Or email us directly: <a href="mailto:groovymoviespod@gmail.com">groovymoviespod@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container foot">
+      <span>© <span id="y"></span> Groovy Movies</span>
+      <div class="links" aria-label="Footer navigation">
+        <a href="#home">Home</a>
+        <a href="#episodes">Episodes</a>
+        <a href="#contact">Contacts</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+
+    // Apply links everywhere using data-gm-link
+    (function applyGlobalLinks() {
+      const links = (window.GM && window.GM.links) ? window.GM.links : {};
+      document.querySelectorAll('[data-gm-link]').forEach(el => {
+        const key = el.getAttribute('data-gm-link');
+        const url = links[key];
+        if (!url) return;
+        el.setAttribute('href', url);
+
+        if (el.getAttribute('target') === '_blank') {
+          const rel = (el.getAttribute('rel') || '').toLowerCase();
+          if (!rel.includes('noopener')) el.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    })();
+
+    // Load latest.json and hydrate YouTube (player + cards)
+    (async function hydrateFromLatestJson() {
+      const iframe = document.querySelector('iframe[data-gm-youtube="latest"]');
+      const grid = document.getElementById('latest-youtube-grid');
+      if (!iframe || !grid) return;
+
+      // Fallback immediato (sempre un video valido)
+      const fallbackId = window.GM?.youtubeFallbackEmbedId;
+      if (fallbackId) {
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(fallbackId)}`;
+      }
+
+      try {
+        // cache-bust leggero per evitare che alcuni host servano una versione vecchia troppo a lungo
+        const res = await fetch(`/latest.json?v=${Date.now()}`, { cache: "no-store" });
+        if (!res.ok) throw new Error(`latest.json fetch failed: ${res.status}`);
+
+        const data = await res.json();
+        const videos = Array.isArray(data?.videos) ? data.videos : [];
+        if (!videos.length) throw new Error("latest.json has no videos[]");
+
+        // Player = primo video (più recente)
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videos[0].id)}`;
+
+        // Cards = primi 3
+        grid.innerHTML = videos.slice(0, 3).map(v => {
+          const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}`;
+          const title = v.title || "Episode";
+          const thumb = v.thumb || `https://img.youtube.com/vi/${encodeURIComponent(v.id)}/hqdefault.jpg`;
+
+          return `
+            <a class="yt-card" href="${watchUrl}" target="_blank" rel="noopener noreferrer">
+              <img class="yt-thumb" src="${thumb}" alt="${escapeHtml(title)} thumbnail" loading="lazy" />
+              <div class="yt-body">
+                <p class="yt-title">${escapeHtml(title)}</p>
+                <p class="yt-meta">Watch on YouTube</p>
+              </div>
+            </a>
+          `;
+        }).join('');
+
+      } catch (err) {
+        console.warn("Hydrate from latest.json failed:", err);
+        // Fallback UI per le card: link al canale
+        grid.innerHTML = `
+          <div style="grid-column:1/-1; background:#fff; border-radius: var(--radius); box-shadow: var(--shadow); padding:18px;">
+            <strong>Latest episodes temporarily unavailable.</strong>
+            <div style="margin-top:8px; color: var(--muted);">
+              Visit our <a href="${window.GM?.links?.youtube || '#'}" target="_blank" rel="noopener noreferrer" style="text-decoration:underline;">YouTube channel</a>.
+            </div>
+          </div>
+        `;
+      }
+    })();
+
+    function escapeHtml(str) {
+      return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+    }
+  </script>
+</body>
+</html>
