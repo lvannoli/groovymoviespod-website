@@ -117,13 +117,21 @@
     .brand span{ letter-spacing:.5px; color: var(--accent-2); }
 
     .links{ display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
+
     .links a{
       padding:8px 12px;
       border-radius:10px;
       font-weight:600;
       color:var(--accent-2);
+      background: var(--accent);
+      color: #fff;
+      transition: background .15s ease, transform .1s ease;
     }
-    .links a:hover{ background: rgba(0,0,0,.05); }
+    .links a:hover{
+      background: color-mix(in srgb, var(--accent) 85%, black);
+      transform: translateY(-1px);
+    }
+    /* .links a:hover{ background: rgba(0,0,0,.05); } */
 
     /* Sections */
     section{ padding:42px 0; }
