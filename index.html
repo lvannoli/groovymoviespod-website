@@ -423,7 +423,7 @@
         iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videos[0].id)}`;
 
         // Cards = primi 3
-        grid.innerHTML = videos.slice(0, 3).map(v => {
+        grid.innerHTML = videos.slice(1, 4).map(v => {
           const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}`;
           const title = v.title || "Episode";
           const thumb = v.thumb || `https://img.youtube.com/vi/${encodeURIComponent(v.id)}/hqdefault.jpg`;

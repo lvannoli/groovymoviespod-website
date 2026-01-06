@@ -17,7 +17,7 @@ async function main() {
   url.searchParams.set("channelId", channelId);
   url.searchParams.set("part", "snippet");
   url.searchParams.set("order", "date");
-  url.searchParams.set("maxResults", "3");
+  url.searchParams.set("maxResults", "4");
   url.searchParams.set("type", "video");
 
   const res = await fetch(url.toString());
