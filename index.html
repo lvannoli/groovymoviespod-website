@@ -358,12 +358,37 @@
     <section id="contact" aria-label="Contacts">
       <h2 class="section-title">Contacts</h2>
       <div class="sub">
-        <form action="mailto:groovymoviespod@gmail.com?subject=Groovy%20Movies%20Contact" method="post" enctype="text/plain">
-          <input type="email" name="email" placeholder="Your email" required aria-label="Your email" />
+        <!-- <form action="mailto:groovymoviespod@gmail.com?subject=Groovy%20Movies%20Contact" method="post" enctype="text/plain"> -->
+        <!-- <input type="email" name="email" placeholder="Your email" required aria-label="Your email" />
           <button class="btn" type="submit">Send</button>
           <textarea name="message" placeholder="Got a question, request, or collab idea? Write to us!" aria-label="Message"></textarea>
+        </form> 
+        <p style="margin-top:12px;color:var(--muted)">Or email us directly: <a href="mailto:groovymoviespod@gmail.com">groovymoviespod@gmail.com</a></p> -->
+          <form id="contact-form"
+          action="https://formspree.io/f/mbdlvvek"
+          method="POST"
+          novalidate>
+          <input type="email"
+            name="email"
+            placeholder="Your email"
+            required
+            aria-label="Your email" />
+          <button class="btn" type="submit" id="contact-submit">Send</button>
+          <textarea name="message"
+                    placeholder="Got a question, request, or collab idea? Write to us!"
+                    required
+                    aria-label="Message"></textarea>
+
+          <!-- Anti-spam honeypot (needs to be empty) -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+          <!-- Meta -->
+          <input type="hidden" name="_subject" value="Groovy Movies — Website contact" />
         </form>
-        <p style="margin-top:12px;color:var(--muted)">Or email us directly: <a href="mailto:groovymoviespod@gmail.com">groovymoviespod@gmail.com</a></p>
+        <!-- Inline messages -->
+        <p id="contact-status"
+          style="margin-top:12px;color:var(--muted)">
+          Or email us directly: <a href="mailto:groovymoviespod@gmail.com">groovymoviespod@gmail.com</a>
+        </p>
       </div>
     </section>
   </main>
@@ -381,7 +406,6 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
-
     // Apply links everywhere using data-gm-link
     (function applyGlobalLinks() {
       const links = (window.GM && window.GM.links) ? window.GM.links : {};
@@ -461,6 +485,53 @@
         .replaceAll('"', '&quot;')
         .replaceAll("'", '&#39;');
     }
+    (function enableContactForm() {
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('contact-status');
+      const btn = document.getElementById('contact-submit');
+      if (!form || !status || !btn) return;
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Basic client-side checks
+        const email = form.querySelector('input[name="email"]')?.value?.trim();
+        const message = form.querySelector('textarea[name="message"]')?.value?.trim();
+        if (!email || !message) {
+          status.textContent = "Please fill in your email and message.";
+          return;
+        }
+
+        btn.disabled = true;
+        const oldBtnText = btn.textContent;
+        btn.textContent = "Sending…";
+        status.textContent = "";
+
+        try {
+          const res = await fetch(form.action, {
+            method: "POST",
+            headers: { "Accept": "application/json" },
+            body: new FormData(form)
+          });
+
+          if (res.ok) {
+            form.reset();
+            status.textContent = "Thanks — message sent.";
+          } else {
+            // Formspree returns JSON with errors sometimes
+            let data = null;
+            try { data = await res.json(); } catch {}
+            const msg = data?.errors?.[0]?.message || "Sorry — something went wrong. Please email us directly.";
+            status.textContent = msg;
+          }
+        } catch (err) {
+          status.textContent = "Network error — please try again or email us directly.";
+        } finally {
+          btn.disabled = false;
+          btn.textContent = oldBtnText;
+        }
+      });
+    })();
   </script>
 </body>
 </html>
