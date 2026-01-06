@@ -243,7 +243,7 @@
     }
   </style>
 
-  <!-- Global config: SOLO link ripetuti, niente apiKey -->
+  <!-- Global config -->
   <script>
     window.GM = {
       links: {
@@ -255,8 +255,8 @@
         tiktok: "https://www.tiktok.com/@groovymoviespod",
         letterboxd: "https://letterboxd.com/GroovyMoviesPod/"
       },
-      // fallback: se latest.json non è disponibile
-      youtubeFallbackEmbedId: "PriGHqaTGKw" /* <-- sostituisci con un vostro episodio (ID video) */
+      // fallback: if latest.json not reachable, use this video ID
+      youtubeFallbackEmbedId: "PriGHqaTGKw" /* <-- ID video to fallback */
     };
   </script>
 </head>
@@ -279,13 +279,13 @@
           <img src="Logos/Youtube_logo.svg" alt="" />
         </a>
         <a class="iconlink" data-gm-link="instagram" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-          <img src="Logos/Instagram.svg" alt="" />
+          <img src="Logos/Instagram_logo.svg" alt="" />
         </a>
         <a class="iconlink" data-gm-link="tiktok" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
           <img src="Logos/Tiktok_logo.svg" alt="" />
         </a>
         <a class="iconlink" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd">
-          <img src="Logos/letterboxd_logo.png" alt="" />
+          <img src="Logos/letterboxd_icon.png" alt="" />
         </a>
       </div>
 
@@ -335,15 +335,15 @@
 
         <!-- Platforms -->
         <aside class="platforms" aria-label="Streaming platforms">
-          <h3>Listen / watch on</h3>
+          <h3>Listen us on</h3>
           <div class="pills" id="platform-pills">
             <a class="pill" data-gm-link="spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
             <a class="pill" data-gm-link="amazon" target="_blank" rel="noopener noreferrer">Amazon</a>
             <a class="pill" data-gm-link="apple" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
             <a class="pill" data-gm-link="youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
-            <a class="pill" data-gm-link="instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <!-- <a class="pill" data-gm-link="instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
             <a class="pill" data-gm-link="tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
-            <a class="pill" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer">Letterboxd</a>
+            <a class="pill" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer">Letterboxd</a> -->
           </div>
         </aside>
 
