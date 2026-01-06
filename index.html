@@ -76,6 +76,14 @@
       border:1px solid rgba(0,0,0,.10);
       background:#fff;
       box-shadow: 0 6px 16px rgba(0,0,0,.08);
+      overflow:hidden;
+    }
+    .iconlink img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit: cover;      /* riempie senza lasciare vuoti (può croppare un po') */
+      object-position:center;
     }
     .iconlink:hover{ background: rgba(0,0,0,.04); }
     .iconlink img{ width:18px; height:18px; display:block; }
