@@ -63,10 +63,10 @@
     .iconbar{
       display:flex;
       align-items:center;
-      gap:10px;
+      gap: 13px;
       flex-wrap:wrap;
     }
-    .iconlink{
+    /* .iconlink{
       width:34px;
       height:34px;
       display:inline-flex;
@@ -74,7 +74,7 @@
       justify-content:center;
       border-radius:10px;
       border:1px solid rgba(0,0,0,.10);
-      background:#fff;
+      background: transparent;
       box-shadow: 0 6px 16px rgba(0,0,0,.08);
       overflow:hidden;
     }
@@ -82,11 +82,40 @@
       width:100%;
       height:100%;
       display:block;
-      object-fit: cover;      /* riempie senza lasciare vuoti (può croppare un po') */
-      object-position:center;
+      object-fit: contain;
+      padding: 0px;
+      background: transparent;
     }
     .iconlink:hover{ background: rgba(0,0,0,.04); }
     .iconlink img{ width:18px; height:18px; display:block; }
+    .iconlink.icon-round{ border-radius:50%; } */
+    .iconlink{
+      width:auto;
+      height:auto;
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      border-radius: 0;
+      overflow: visible;
+      padding: 0;
+    }
+
+    /* icone tutte uguali come altezza */
+    .iconlink img{
+      height:30px;      /* prova 20–26px */
+      width:30px;
+      display:block;
+      object-fit: contain;
+      background: transparent;
+    }
+
+    /* hover sottile */
+    .iconlink:hover{
+      opacity: .75;
+    }
 
     .brand{
       display:flex;
@@ -274,11 +303,11 @@
     <div class="container nav">
       <!-- Top-left: social/platform Logos (href set by JS) -->
       <div class="iconbar" aria-label="Listen and follow" id="iconbar">
-        <a class="iconlink" data-gm-link="spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
-          <img src="Logos/Spotify_logo.svg" alt="" />
+        <a class="iconlink icon-round" data-gm-link="spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+          <img src="Logos/Spotify_logo.svg" alt="" style="height:35px; width:auto;" />
         </a>
         <a class="iconlink" data-gm-link="amazon" target="_blank" rel="noopener noreferrer" aria-label="Amazon Music / Podcasts">
-          <img src="Logos/Amazonmusic_logo.png" alt="" />
+          <img src="Logos/Amazonmusic_logo.svg" alt="" style="height:38px; width:auto;" />
         </a>
         <a class="iconlink" data-gm-link="apple" target="_blank" rel="noopener noreferrer" aria-label="Apple Podcasts">
           <img src="Logos/Applepodcast_logo.svg" alt="" />
@@ -293,17 +322,18 @@
           <img src="Logos/Tiktok_logo.svg" alt="" />
         </a>
         <a class="iconlink" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd">
-          <img src="Logos/letterboxd_icon.png" alt="" />
+          <img src="Logos/letterboxd_icon.png" alt="" style="height:38px; width:auto;" />
         </a>
       </div>
 
       <a class="brand" href="#home" aria-label="Groovy Movies home">
-        <span>Groovy Movies</span>
+        <!-- <span>Groovy Movies</span> -->
+        <img src="Logos/Logo.png" alt="Groovy Movies" alt="" style="height:100px; width:auto;" />
       </a>
 
       <nav class="links" aria-label="Primary navigation">
         <a href="#episodes">Episodes</a>
-        <a href="#contact">Contacts</a>
+        <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
@@ -311,7 +341,7 @@
   <main id="home" class="container">
     <section class="hero" aria-label="Intro">
       <div class="hero-banner">
-        <img src="Logos/GroovyMovies_Banner_PNG_no_bkg.png" alt="Groovy Movies banner" />
+        <img src="Logos/GroovyMovies_Banner_PNG_no_bkg.png" alt="Groovy Movies banner"/>
       </div>
 
       <p class="lead">
@@ -363,8 +393,8 @@
     </section>
 
     <!-- Contacts -->
-    <section id="contact" aria-label="Contacts">
-      <h2 class="section-title">Contacts</h2>
+    <section id="contact" aria-label="Contact">
+      <h2 class="section-title">Contact</h2>
       <div class="sub">
         <!-- <form action="mailto:groovymoviespod@gmail.com?subject=Groovy%20Movies%20Contact" method="post" enctype="text/plain"> -->
         <!-- <input type="email" name="email" placeholder="Your email" required aria-label="Your email" />
@@ -407,7 +437,7 @@
       <div class="links" aria-label="Footer navigation">
         <a href="#home">Home</a>
         <a href="#episodes">Episodes</a>
-        <a href="#contact">Contacts</a>
+        <a href="#contact">Contact</a>
       </div>
     </div>
   </footer>
