@@ -1,6 +1,11 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <!-- Site authorship -->
+  <meta name="author" content="Leonardo Vannoli" />
+  <meta name="creator" content="Leonardo Vannoli" />
+  <meta name="designer" content="Leonardo Vannoli" />
+  
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Groovy Movies — Podcast</title>
@@ -82,7 +87,6 @@
       padding: 0;
     }
 
-    /* same height and width */
     .iconlink img{
       height:30px; 
       width:30px;
@@ -122,7 +126,6 @@
       padding:8px 12px;
       border-radius:10px;
       font-weight:600;
-      color:var(--accent-2);
       background: var(--accent);
       color: #fff;
       transition: background .15s ease, transform .1s ease;
@@ -131,7 +134,6 @@
       background: color-mix(in srgb, var(--accent) 85%, black);
       transform: translateY(-1px);
     }
-    /* .links a:hover{ background: rgba(0,0,0,.05); } */
 
     /* Sections */
     section{ padding:42px 0; }
@@ -152,7 +154,7 @@
 
     .hero-banner-cover{
       width: 100%;
-      aspect-ratio: 1600 / 500; /* regola se serve */
+      aspect-ratio: 1600 / 500;
       background-image: url("Logos/GroovyMovies_Banner_PNG_no_bkg.png");
       background-size: cover;
       background-position: center;
@@ -219,28 +221,6 @@
       min-height: 220px;
       aspect-ratio: 16 / 9;
     }
-
-    .platforms{
-      margin-top: 16px;
-      background:#fff;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding:18px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .platforms h3{ margin:0; font-size:18px; }
-    .pills{ display:flex; gap:10px; flex-wrap:wrap; }
-    .pill{
-      display:inline-block;
-      padding:10px 14px;
-      border-radius:999px;
-      border:1px solid rgba(0,0,0,.08);
-      background:#fff;
-      font-weight:700;
-    }
-    .pill:hover{ background: rgba(0,0,0,.05); }
 
     /* YouTube latest 3 */
     .grid{ display:grid; grid-template-columns: repeat(12, 1fr); gap:16px; }
@@ -321,7 +301,6 @@
       .links{ justify-content:flex-start; }
       .nav{ align-items:flex-start; flex-direction:column; }
       .links{ width:100%; }
-      .hero-banner img{ max-width: 100%; }
       .brand{position: static; transform: none;}
     }
   </style>
@@ -374,7 +353,7 @@
 
       <a class="brand" href="#home" aria-label="Groovy Movies home">
         <!-- <span>Groovy Movies</span> -->
-        <img src="Logos/Logo.png" alt="Groovy Movies" alt="" />
+        <img src="Logos/Logo.png" alt="Groovy Movies" />
       </a>
 
       <nav class="links" aria-label="Primary navigation">
@@ -388,23 +367,15 @@
   <main id="home" class="container">
     <section class="hero" aria-label="Intro">
       <div class="hero-banner">
-        <div class="hero-banner-cover" aria-label="Groovy Movies banner"></div>
-        <!-- <img src="Logos/GroovyMovies_Banner_PNG_no_bkg.png" alt="Groovy Movies banner"/> -->
+        <div class="hero-banner-cover" role="img" aria-label="Groovy Movies banner"></div>
       </div>
 
       <p class="lead">
-        A film podcast with a retro vibe. Deep dives, hot takes, and good times. Tune in for fresh conversations about classics, cult gems, and new releases.
+        Each week, Lily Austin and James Brailsford talk new releases, industry drama and Hollywood gossip.
       </p>
-
-      <!-- <div class="cta">
-        <a class="btn" href="#episodes">Watch latest</a>
-        <a class="btn sec" href="#contact">Contact</a>
-      </div> -->
     </section>
 
     <section id="listen" aria-label="Listen to us">
-      <!-- <h2 class="section-title">Listen to us</h2> -->
-
       <div class="listen-row" aria-label="Platforms">
         <a class="iconlink icon-round" data-gm-link="spotify" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
           <img src="Logos/Spotify_logo.svg" alt="" />
@@ -425,7 +396,7 @@
           <img src="Logos/Tiktok_logo.svg" alt="" />
         </a>
         <a class="iconlink" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer" aria-label="Letterboxd">
-          <img src="Logos/letterboxd_icon.png" alt="" />
+          <img src="Logos/letterboxd_icon.png" alt="" style="height:48px; width:auto;" />
         </a>
       </div>
     </section>
@@ -448,20 +419,6 @@
           </iframe>
         </div>
 
-        <!-- Platforms -->
-        <!-- <aside class="platforms" aria-label="Streaming platforms">
-          <h3>Listen to us on</h3>
-          <div class="pills" id="platform-pills">
-            <a class="pill" data-gm-link="spotify" target="_blank" rel="noopener noreferrer">Spotify</a>
-            <a class="pill" data-gm-link="amazon" target="_blank" rel="noopener noreferrer">Amazon</a>
-            <a class="pill" data-gm-link="apple" target="_blank" rel="noopener noreferrer">Apple Podcasts</a>
-            <a class="pill" data-gm-link="youtube" target="_blank" rel="noopener noreferrer">YouTube</a>
-            <a class="pill" data-gm-link="instagram" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a class="pill" data-gm-link="tiktok" target="_blank" rel="noopener noreferrer">TikTok</a>
-            <a class="pill" data-gm-link="letterboxd" target="_blank" rel="noopener noreferrer">Letterboxd</a>
-          </div>
-        </aside> -->
-
         <div style="margin-top:16px;"></div>
         <div class="grid" aria-label="Latest episodes on YouTube" id="latest-youtube-grid">
           <!-- JS will inject cards here -->
@@ -479,10 +436,10 @@
 
         <div class="about-body">
           <p style="margin-top:0;">
-            Groovy Movies is a film podcast with a retro vibe — deep dives, hot takes, and good times.
+            Lily Austin is a podcast producer with a background in fashion and cultural criticism. Her current fixations are Diane Keaton's wardrobe and Safdie brothers' sibling rivalry. 
           </p>
-          <p style="margin:0; color: var(--muted);">
-            We cover classics, cult gems, and new releases, with smart recommendations and a lot of personality.
+          <p>
+            James Brailsford is a film lecturer with a background in directing and editing. His current fixations are Stanley Kubrick, Christopher Nolan and the ongoing plight of Disney.
           </p>
         </div>
       </div>
@@ -493,12 +450,6 @@
     <section id="contact" aria-label="Contact">
       <h2 class="section-title">Contact</h2>
       <div class="sub">
-        <!-- <form action="mailto:groovymoviespod@gmail.com?subject=Groovy%20Movies%20Contact" method="post" enctype="text/plain"> -->
-        <!-- <input type="email" name="email" placeholder="Your email" required aria-label="Your email" />
-          <button class="btn" type="submit">Send</button>
-          <textarea name="message" placeholder="Got a question, request, or collab idea? Write to us!" aria-label="Message"></textarea>
-        </form> 
-        <p style="margin-top:12px;color:var(--muted)">Or email us directly: <a href="mailto:groovymoviespod@gmail.com">groovymoviespod@gmail.com</a></p> -->
           <form id="contact-form"
           action="https://formspree.io/f/mbdlvvek"
           method="POST"
@@ -514,7 +465,7 @@
                     required
                     aria-label="Message"></textarea>
 
-          <!-- Anti-spam honeypot (needs to be empty) -->
+          <!-- Anti-spam honeypot -->
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
           <!-- Meta -->
           <input type="hidden" name="_subject" value="Groovy Movies — Website contact" />
@@ -564,14 +515,14 @@
       const grid = document.getElementById('latest-youtube-grid');
       if (!iframe || !grid) return;
 
-      // Fallback immediato (sempre un video valido)
+      // Fallback on a fixed video ID immediately
       const fallbackId = window.GM?.youtubeFallbackEmbedId;
       if (fallbackId) {
         iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(fallbackId)}`;
       }
 
       try {
-        // cache-bust leggero per evitare che alcuni host servano una versione vecchia troppo a lungo
+        // cache-bust query param to avoid cached responses
         const res = await fetch(`latest.json?v=${Date.now()}`, { cache: "no-store" });
         if (!res.ok) throw new Error(`latest.json fetch failed: ${res.status}`);
 
@@ -579,10 +530,10 @@
         const videos = Array.isArray(data?.videos) ? data.videos : [];
         if (!videos.length) throw new Error("latest.json has no videos[]");
 
-        // Player = primo video (più recente)
+        // Player = most recent video
         iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(videos[0].id)}`;
 
-        // Cards = primi 3
+        // Cards = last 3 videos
         grid.innerHTML = videos.slice(1, 4).map(v => {
           const watchUrl = `https://www.youtube.com/watch?v=${encodeURIComponent(v.id)}`;
           const title = v.title || "Episode";
@@ -601,7 +552,7 @@
 
       } catch (err) {
         console.warn("Hydrate from latest.json failed:", err);
-        // Fallback UI per le card: link al canale
+        // Fallback UI for cards only (no player change, already set)
         grid.innerHTML = `
           <div style="grid-column:1/-1; background:#fff; border-radius: var(--radius); box-shadow: var(--shadow); padding:18px;">
             <strong>Latest episodes temporarily unavailable.</strong>
