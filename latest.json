@@ -1,7 +1,13 @@
 {
-  "generatedAt": "2026-04-13T08:22:40.405Z",
+  "generatedAt": "2026-04-14T08:04:00.497Z",
   "channelId": "UCpqHva-vX9UPGcNPtfIDZ_A",
   "videos": [
+    {
+      "id": "QeQfR5gqvgo",
+      "title": "Clever Girls and Space Men ft. Hannah McGregor",
+      "thumb": "https://i.ytimg.com/vi/QeQfR5gqvgo/hqdefault.jpg",
+      "publishedAt": "2026-04-14T05:00:33Z"
+    },
     {
       "id": "n8IsSoSRI0I",
       "title": "Make Star Trek Great Again? #podcast #funny",
@@ -19,12 +25,6 @@
       "title": "Wuthering Heights: can Jacob Elordi grow a beard?",
       "thumb": "https://i.ytimg.com/vi/tlMT3Tm31_Q/hqdefault.jpg",
       "publishedAt": "2026-02-17T06:00:54Z"
-    },
-    {
-      "id": "rC5D0pxX1Uc",
-      "title": "Star Wars 101",
-      "thumb": "https://i.ytimg.com/vi/rC5D0pxX1Uc/hqdefault.jpg",
-      "publishedAt": "2026-02-13T21:35:21Z"
     }
   ]
 }
