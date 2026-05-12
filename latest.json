@@ -1,7 +1,13 @@
 {
-  "generatedAt": "2026-05-11T09:59:37.634Z",
+  "generatedAt": "2026-05-12T09:12:12.300Z",
   "channelId": "UCpqHva-vX9UPGcNPtfIDZ_A",
   "videos": [
+    {
+      "id": "Bz1Ijp_kbfs",
+      "title": "The cinematic ascent of A24 and its latest hit, The Drama",
+      "thumb": "https://i.ytimg.com/vi/Bz1Ijp_kbfs/hqdefault.jpg",
+      "publishedAt": "2026-05-12T05:00:09Z"
+    },
     {
       "id": "GriHldkKjk8",
       "title": "Head to Head #podcast #movie #funny #comedy #film #moviefacts",
@@ -19,12 +25,6 @@
       "title": "Emotional Intimacy",
       "thumb": "https://i.ytimg.com/vi/E_CFpy-7h1A/hqdefault.jpg",
       "publishedAt": "2026-04-16T21:51:18Z"
-    },
-    {
-      "id": "QeQfR5gqvgo",
-      "title": "Clever Girls and Space Men ft. Hannah McGregor",
-      "thumb": "https://i.ytimg.com/vi/QeQfR5gqvgo/hqdefault.jpg",
-      "publishedAt": "2026-04-14T05:00:33Z"
     }
   ]
 }
