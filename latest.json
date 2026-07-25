@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-24T08:43:21.892Z",
+  "generatedAt": "2026-07-25T08:24:13.004Z",
   "channelId": "UCpqHva-vX9UPGcNPtfIDZ_A",
   "videos": [
     {
@@ -7,6 +7,12 @@
       "title": "The end of an Odyssey (spoiler-free!)",
       "thumb": "https://i.ytimg.com/vi/UvOWrpA-1FY/hqdefault.jpg",
       "publishedAt": "2026-07-21T15:07:25Z"
+    },
+    {
+      "id": "pCrWbT2GdXw",
+      "title": "The Christopher Nolan Hallmarks pt 1",
+      "thumb": "https://i.ytimg.com/vi/pCrWbT2GdXw/hqdefault.jpg",
+      "publishedAt": "2026-06-09T05:00:03Z"
     },
     {
       "id": "Bz1Ijp_kbfs",
@@ -19,12 +25,6 @@
       "title": "Head to Head #podcast #movie #funny #comedy #film #moviefacts",
       "thumb": "https://i.ytimg.com/vi/GriHldkKjk8/hqdefault.jpg",
       "publishedAt": "2026-04-16T21:59:46Z"
-    },
-    {
-      "id": "WSrV4g5Dg8s",
-      "title": "IMAX storytelling",
-      "thumb": "https://i.ytimg.com/vi/WSrV4g5Dg8s/hqdefault.jpg",
-      "publishedAt": "2026-04-16T21:58:01Z"
     }
   ]
 }
