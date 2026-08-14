@@ -1,7 +1,19 @@
 {
-  "generatedAt": "2026-08-13T07:53:57.282Z",
+  "generatedAt": "2026-08-14T07:51:18.760Z",
   "channelId": "UCpqHva-vX9UPGcNPtfIDZ_A",
   "videos": [
+    {
+      "id": "UvOWrpA-1FY",
+      "title": "The end of an Odyssey (spoiler-free!)",
+      "thumb": "https://i.ytimg.com/vi/UvOWrpA-1FY/hqdefault.jpg",
+      "publishedAt": "2026-07-21T15:07:25Z"
+    },
+    {
+      "id": "pCrWbT2GdXw",
+      "title": "The Christopher Nolan Hallmarks pt 1",
+      "thumb": "https://i.ytimg.com/vi/pCrWbT2GdXw/hqdefault.jpg",
+      "publishedAt": "2026-06-09T05:00:03Z"
+    },
     {
       "id": "Bz1Ijp_kbfs",
       "title": "The cinematic ascent of A24 and its latest hit, The Drama",
@@ -9,22 +21,10 @@
       "publishedAt": "2026-05-12T05:00:09Z"
     },
     {
-      "id": "QeQfR5gqvgo",
-      "title": "Clever Girls and Space Men ft. Hannah McGregor",
-      "thumb": "https://i.ytimg.com/vi/QeQfR5gqvgo/hqdefault.jpg",
-      "publishedAt": "2026-04-14T05:00:33Z"
-    },
-    {
       "id": "GriHldkKjk8",
       "title": "Head to Head #podcast #movie #funny #comedy #film #moviefacts",
       "thumb": "https://i.ytimg.com/vi/GriHldkKjk8/hqdefault.jpg",
       "publishedAt": "2026-04-16T21:59:46Z"
-    },
-    {
-      "id": "j25oUZq9CwE",
-      "title": "Should we scrap award ceremonies?",
-      "thumb": "https://i.ytimg.com/vi/j25oUZq9CwE/hqdefault.jpg",
-      "publishedAt": "2026-03-24T09:05:26Z"
     }
   ]
 }
